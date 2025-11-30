@@ -1,0 +1,50 @@
+src/
+ ├─ assets/               # Static assets like images, fonts, icons
+ │    ├─ images/
+ │    ├─ icons/
+ │    └─ fonts/
+ │
+ ├─ components/           # Reusable UI components (buttons, cards, inputs)
+ │    ├─ ui/              # Small reusable components
+ │    │    ├─ Button.jsx
+ │    │    ├─ Input.jsx
+ │    │    └─ Card.jsx
+ │    └─ layout/          # Components used for layouts
+ │         ├─ Navbar.jsx
+ │         ├─ Sidebar.jsx
+ │         └─ Footer.jsx
+ │
+ ├─ screens/              # Pages / views (also called “routes”)
+ │    ├─ Home.jsx
+ │    ├─ About.jsx
+ │    ├─ Login.jsx
+ │    └─ Dashboard/
+ │         ├─ DashboardHome.jsx
+ │         └─ Settings.jsx
+ │
+ ├─ layouts/              # Layout wrappers for pages
+ │    ├─ MainLayout.jsx   # Public layout (header + footer)
+ │    └─ AuthLayout.jsx   # Layout for auth pages (login, signup)
+ │
+ ├─ router/               # Routing configuration
+ │    └─ AppRouter.jsx
+ │
+ ├─ hooks/                # Custom React hooks
+ │    ├─ useAuth.js
+ │    └─ useFetch.js
+ │
+ ├─ contexts/             # React context providers
+ │    └─ AuthContext.jsx
+ │
+ ├─ services/             # API calls, axios instances, or service logic
+ │    └─ api.js
+ │
+ ├─ utils/                # Utility/helper functions
+ │    └─ formatDate.js
+ │
+ ├─ styles/               # Global styles, Tailwind overrides, tokens
+ │    ├─ index.css
+ │    └─ tokens.css
+ │
+ ├─ App.jsx               # Main app component
+ └─ main.jsx              # Entry point

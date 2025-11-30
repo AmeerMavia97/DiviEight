@@ -4,8 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: "rgb(var(--brand) / <alpha-value>)",
-        brandDark: "rgb(var(--brand-dark) / <alpha-value>)",
+        brandBlack: "#000000",
+        brandCyan: "#47AEB6",
+        brandWhite: "#FFFFFF",
+        brandBlue: "#0634FD",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "ui-sans-serif", "system-ui"],
