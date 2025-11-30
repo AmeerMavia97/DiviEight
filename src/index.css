@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global design tokens */
+:root {
+  /* Brand Colors */
+  --brand: 32 185 88;    
+  --brand-dark: 16 140 65;
+
+  /* Neutrals */
+  --text: 22 24 28;
+  --muted: 100 116 139;
+  --bg: 255 255 255;
+
+  /* Font Families */
+  --font-sans: Inter, system-ui, sans-serif;
+  --font-display: Poppins, system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: rgb(var(--bg));
+  color: rgb(var(--text));
+}
