@@ -1,16 +1,18 @@
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+// COMPONENTS 
+import MainLayout from '@/layouts/MainLayout/MainLayout'
+// SCREENS 
 import Home from '@/screens/Home/Home'
-import Footer from '@/component/layout/Footer/Footer'
-import Navbar from '@/component/layout/Navbar/NavbarVariation'
+import Signin from '@/screens/auth/Signin/Signin'
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
-      {/* <Navbar/> */}
       <Routes>
-        <Route path={"/"} element={<Home />} />
+        <Route path={"/"} element={<MainLayout><Home /></MainLayout>} />
+        <Route path={"/register"} element={<Signin />} />
       </Routes>
-      <Footer/>
     </BrowserRouter>
   )
 }
