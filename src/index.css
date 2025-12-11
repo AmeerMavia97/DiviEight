@@ -12,11 +12,15 @@
   --brandLight: #ffffff;
   --brandteal: #47aeb573;
   --brandGreen: #46acb4;
+  --brandGrey: #9c9c9c;
+  --brandGrey2: #676666dd;
+  /* --brandDark2: #3a3a3a; */
+  --brandDark2: #292929;
   /* --brandGrey:  */
 
   /* Font Families */
-  --font-display: "Roboto Condensed";
-  --font-head: "TASA Orbiter";
+  --font-head: "Roboto Condensed";
+  --font-para: "TASA Orbiter";
 }
 
 body {
@@ -24,27 +28,21 @@ body {
   color: rgb(var(--text));
 }
 
-.font-display {
-  font-family: var(--font-display);
-}
 
-.font-head {
+/* .font-head {
   font-family: var(--font-head);
 }
 
-.font-sans {
-  font-family: var(--font-sans);
-}
+.font-para {
+  font-family: var(--font-para);
+} */
 
 @theme inline {
   /* =====================
      FONT FAMILIES
   ====================== */
-  --font-display: "Roboto Condensed", sans-serif;
-  --font-head: "TASA Orbiter", sans-serif;
-  --font-urbanist: "Urbanist", sans-serif;
-  --font-inter: "Inter", sans-serif;
-  --font-poppins: "Poppins", sans-serif;
+  --font-head: var(--font-head);
+  --font-para: var(--font-para);
 
   /* =====================
      COLORS
@@ -52,6 +50,9 @@ body {
   --color-brandDark: var(--brandDark);
   --color-brandLight: var(--brandLight);
   --color-brandGreen: var(--brandGreen);
+  --color-brandGrey: var(--brandGrey);
+  --color-brandDark2: var(--brandDark2);
+  --color-brandGrey2: var(--brandGrey2);
 
   
 }
@@ -67,7 +68,7 @@ body {
 
 }
 
-@layer base {
+/* @layer base {
   * {
     @apply border-border outline-ring/50;
   }
@@ -75,4 +76,4 @@ body {
   body {
     @apply bg-background text-foreground;
   }
-}
+} */
