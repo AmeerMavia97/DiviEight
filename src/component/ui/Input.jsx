@@ -36,9 +36,9 @@ export function Input({
           <button
             type="button"
             onClick={() => setShow(!show)}
-            className="absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer text-brandDark text-sm"
+            className="absolute top-7.5 right-4 -translate-y-1/2 cursor-pointer text-brandGrey text-sm"
           >
-            {show ? <EyeClosed className="size-5" /> : <Eye className="size-5" />}
+            {show ? <EyeClosed className="size-4.5" /> : <Eye className="size-4.5" />}
           </button>
         )}
       </div>

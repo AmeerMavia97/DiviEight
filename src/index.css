@@ -9,6 +9,7 @@
 :root {
   /* Brand Colors */
   --brandDark: #000;
+  --brandError: red;
   --brandLight: #ffffff;
   --brandteal: #47aeb573;
   --brandGreen: #46acb4;
@@ -53,6 +54,7 @@ body {
   --color-brandGrey: var(--brandGrey);
   --color-brandDark2: var(--brandDark2);
   --color-brandGrey2: var(--brandGrey2);
+  --color-brandError: var(--brandError);
 
   
 }

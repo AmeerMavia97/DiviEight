@@ -1,50 +1,85 @@
-import { useRef } from "react";
-import { Controller } from "react-hook-form";
+// OtpInput.jsx
+import React, { useEffect, useRef } from "react";
 
-export default function OtpInput({ name, control, length = 6 }) {
-  const inputs = useRef([]);
+const OtpInput = ({ length = 6, value = "", onChange, error }) => {
+  const inputsRef = useRef([]);
 
-  const handleChange = (e, index, field) => {
-    const value = e.target.value.replace(/\D/g, "");
-    field.onChange(updateValue(index, value, field.value));
+  // Keep OTP in array form for managing individual inputs
+  const otp = value.split("").concat(Array(length).fill("")).slice(0, length);
 
-    if (value && index < length - 1) {
-      inputs.current[index + 1].focus();
+  const focusInput = (index) => {
+    if (inputsRef.current[index]) {
+      inputsRef.current[index].focus();
+    }
+  };
+
+  const handleChange = (e, index) => {
+    const val = e.target.value.replace(/\D/g, "");
+    if (!val) return;
+
+    const newOtp = [...otp];
+    newOtp[index] = val;
+    onChange(newOtp.join(""));
+
+    if (index < length - 1) {
+      focusInput(index + 1);
     }
   };
 
   const handleKeyDown = (e, index) => {
-    if (e.key === "Backspace" && !e.target.value && index > 0) {
-      inputs.current[index - 1].focus();
+    if (e.key === "Backspace") {
+      e.preventDefault();
+      const newOtp = [...otp];
+      if (newOtp[index]) {
+        newOtp[index] = "";
+        onChange(newOtp.join(""));
+      } else if (index > 0) {
+        focusInput(index - 1);
+        newOtp[index - 1] = "";
+        onChange(newOtp.join(""));
+      }
     }
   };
 
-  const updateValue = (index, value, prevValue = "") => {
-    const chars = prevValue.split("");
-    chars[index] = value;
-    return chars.join("");
+  const handlePaste = (e) => {
+    e.preventDefault();
+    const pasted = e.clipboardData.getData("text").slice(0, length).replace(/\D/g, "").split("");
+
+    const newOtp = [...otp];
+    pasted.forEach((char, i) => {
+      if (i < length) {
+        newOtp[i] = char;
+      }
+    });
+
+    onChange(newOtp.join(""));
+    if (pasted.length < length) {
+      focusInput(pasted.length);
+    } else {
+      inputsRef.current[length - 1].blur();
+    }
   };
 
   return (
-    <div className="flex gap-5">
-      {Array.from({ length }).map((_, i) => (
-        <Controller
-          key={i}
-          name={`${name}.${i}`}
-          control={control}
-          defaultValue=""
-          render={({ field }) => (
-            <input
-              maxLength={1}
-              type="text"
-              className="w-13 text-center h-13 font-para text-[18px] border-[#dadadacc] rounded-[6px] text-brandDark border-[1px] focus:outline-[#979797] bg-[#fafcfcc5] placeholder:text-brandGrey2 font-[500] tracking-wider"
-              onChange={(e) => handleChange(e, i, field)}
-              onKeyDown={(e) => handleKeyDown(e, i)}
-              ref={(el) => (inputs.current[i] = el)}
-            />
-          )}
+    <div className="flex gap-2 min-[410px]:gap-4">
+      {Array.from({ length }).map((_, index) => (
+        <input
+          key={index}
+          ref={(el) => (inputsRef.current[index] = el)}
+          type="text"
+          inputMode="numeric"
+          maxLength="1"
+          value={otp[index] || ""}
+          onChange={(e) => handleChange(e, index)}
+          onKeyDown={(e) => handleKeyDown(e, index)}
+          onPaste={handlePaste}
+          className={`w-9 h-10 min-[410px]:w-11 min-[410px]:h-12 text-center border outline-none rounded-md text-lg font-medium ${
+            error ? "border-brandError" : "border-gray-300"
+          }`}
         />
       ))}
     </div>
   );
-}
+};
+
+export default OtpInput;
