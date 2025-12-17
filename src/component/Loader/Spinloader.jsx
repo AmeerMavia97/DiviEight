@@ -5,7 +5,7 @@ function Spinloader({ hide }) {
         <div
             className={`
               fixed inset-0 z-50 flex items-center justify-center bg-blue 
-              transition-opacity duration-700 bg-brandGreen dark:bg-brandDark
+              transition-opacity duration-700 bg-brandLight dark:bg-brandDark
               ${hide ? "opacity-0 pointer-events-none" : "opacity-100"}
               `}
         >
