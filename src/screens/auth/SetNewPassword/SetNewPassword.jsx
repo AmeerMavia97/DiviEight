@@ -7,14 +7,16 @@ import RuleItem from "@/component/ui/RuleItem";
 import AuthScreenLayout from "@/layouts/AuthScreenLayout/AuthScreenLayout";
 // IMAGES
 import Forget_01 from "@/assets/Banners/Auth-02.avif";
+import { useNavigate } from "react-router-dom";
 
 const passwordRegex =
   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$/;
 
 const SetNewPassword = () => {
   const [loading, setLoading] = useState(false);
-  const [apiError, setApiError] = useState("");   // ✅ NEW
+  const [apiError, setApiError] = useState(""); 
   const { email } = location.state || {};
+  const navigate = useNavigate()
 
   const {
     register,
@@ -31,7 +33,10 @@ const SetNewPassword = () => {
   /* ======= CLEAR API ERROR ON INPUT CHANGE ======= */
   useEffect(() => {
     if (apiError) setApiError("");
-  }, [password, confirmPassword]);
+     if (!email) {
+          navigate("/forget-password");
+      }
+  }, [password, confirmPassword , email ,navigate]);
 
   /* ======= RULE CHECKS ======= */
   const hasMinLength = password.length >= 8;
@@ -41,7 +46,6 @@ const SetNewPassword = () => {
 
   const allRulesPassed = hasMinLength && hasStrongChars && passwordsMatch;
 
-  /* ======= SUBMIT ======= */
   const onSubmit = async (data) => {
     if (!allRulesPassed) return;
 
@@ -56,7 +60,6 @@ const SetNewPassword = () => {
 
       console.log("Password updated successfully");
     } catch (err) {
-      // ✅ SAFE BACKEND ERROR EXTRACTION
       setApiError(
         err?.message ||
         err?.error ||
@@ -79,7 +82,6 @@ const SetNewPassword = () => {
           Your previous password has been reset. Please set a new password.
         </p>
 
-        {/* PASSWORD */}
         <Input
           label="Password"
           name="password"
@@ -101,7 +103,6 @@ const SetNewPassword = () => {
           }}
         />
 
-        {/* CONFIRM PASSWORD */}
         <div className="mt-4">
           <Input
             label="Confirm Password"
@@ -135,7 +136,6 @@ const SetNewPassword = () => {
           />
         </div>
 
-        {/* 🔴 API ERROR UI */}
         {apiError && (
           <p className="mt-3 text-sm text-red-500 font-para">
             {apiError}
