@@ -55,7 +55,7 @@ const SetNewPassword = () => {
 
       await setNewPassword({
         email,
-        password: data.confirmPassword,
+        new_password: data.confirmPassword,
       });
 
       console.log("Password updated successfully");
