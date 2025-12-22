@@ -9,12 +9,18 @@ import Signup from '@/screens/auth/Signup/Signup'
 import ForgetPassword from '@/screens/auth/ForgetPassword/ForgetPassword'
 import SetNewPassword from '@/screens/auth/SetNewPassword/SetNewPassword'
 import VerifyOtp from '@/screens/auth/VerifyOtp/VerifyOtp'
+import Listings from '@/screens/Listing/Listings'
+import ContactUs from '@/screens/ContactUs/ContactUs'
+import ListingDetails from '@/screens/ListingDetails/ListingDetails'
 
 const AppRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path={"/"} element={<MainLayout><Home /></MainLayout>} />
+        <Route path={"/properties"} element={<MainLayout><Listings /></MainLayout>} />
+        <Route path={"/properties/detail"} element={<MainLayout><ListingDetails /></MainLayout>} />
+        <Route path={"/contact-us"} element={<MainLayout><ContactUs /></MainLayout>} />
 
         {/* ======== AUTHENTICATION SCREENS ======== */}
         <Route path={"/login"} element={<Signin />} />
