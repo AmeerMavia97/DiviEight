@@ -4,6 +4,7 @@ import React from 'react'
 import Image from '@/assets/Banners/AboutUsImage2.webp'
 import ListingInfo from '@/component/Screenslayout/LisitngDetails/ListingInfo';
 import { Dot } from 'lucide-react';
+import ListingOwnerInfo from '@/component/Screenslayout/LisitngDetails/ListingOwnerInfo';
 
 
 const images = [
@@ -29,9 +30,12 @@ const ListingDetails = () => {
 
         <PropertyGallery images={images}></PropertyGallery>
 
-        <div className='flex mt-5'>
+        <div className='flex mt-5 gap-6 '>
             <div className='w-[62%]'>
                 <ListingInfo/>
+            </div>
+            <div className='w-[36%]'>
+              <ListingOwnerInfo></ListingOwnerInfo>
             </div>
         </div>
       </section>

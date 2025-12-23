@@ -1,4 +1,5 @@
 import { ArrowUpRight, Bath, Bed, Heart, MapPin, Ruler, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 
 const PropertyCard = ({
@@ -79,7 +80,9 @@ const PropertyCard = ({
                 </div>
 
                 {/* Button */}
-                 <button className="px-2 mt-4 font-para text-brandLight text-center justify-center rounded-full gap-2.5 pl-5 flex py-1.5 text-[15px] font-[450] items-center bg-brandGreen">View More <span className=" rounded-full px-1.5 py-1.5 text-brandLight"><ArrowUpRight className="size-5" /></span></button>
+                <Link to={"/properties/detail"}>
+                    <button className="px-2 mt-4 font-para text-brandLight text-center justify-center rounded-full gap-2.5 pl-5 flex py-1.5 text-[15px] font-[450] items-center bg-brandGreen">View More <span className=" rounded-full px-1.5 py-1.5 text-brandLight"><ArrowUpRight className="size-5" /></span></button>
+                </Link>
             </div>
         </div>
     );
