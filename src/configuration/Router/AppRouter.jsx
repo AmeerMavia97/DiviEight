@@ -12,6 +12,7 @@ import VerifyOtp from '@/screens/auth/VerifyOtp/VerifyOtp'
 import Listings from '@/screens/Listing/Listings'
 import ContactUs from '@/screens/ContactUs/ContactUs'
 import ListingDetails from '@/screens/ListingDetails/ListingDetails'
+import DashboardRouting from '@/screens/Dashboard'
 
 const AppRouter = () => {
   return (
@@ -21,6 +22,7 @@ const AppRouter = () => {
         <Route path={"/properties"} element={<MainLayout><Listings /></MainLayout>} />
         <Route path={"/properties/detail"} element={<MainLayout><ListingDetails /></MainLayout>} />
         <Route path={"/contact-us"} element={<MainLayout><ContactUs /></MainLayout>} />
+        <Route path={"/dashboard/*"} element={<DashboardRouting />} />
 
         {/* ======== AUTHENTICATION SCREENS ======== */}
         <Route path={"/login"} element={<Signin />} />

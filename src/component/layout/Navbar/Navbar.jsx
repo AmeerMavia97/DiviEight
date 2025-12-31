@@ -23,6 +23,7 @@ const NavLink = ({ href, children, onClick }) => (
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
+  const token = localStorage.getItem("token")
 
   const toggleTheme = () =>
     setTheme(theme === "dark" ? "light" : "dark");
@@ -51,12 +52,17 @@ const Navbar = () => {
               {theme === "dark" ? <Sun /> : <Moon className="text-brandDark" />}
             </button>
 
-            <button className="flex items-center gap-4 px-2 pl-5 py-1.5 text-[15px] font-[450] rounded-full font-para bg-brandGreen text-brandLight">
+            {!token ? <button className="flex items-center gap-4 px-2 pl-5 py-1.5 text-[15px] font-[450] rounded-full font-para bg-brandGreen text-brandLight">
               Get Started
               <span className="bg-brandLight rounded-full p-1.5 text-brandDark">
                 <ArrowUpRight className="size-5" />
               </span>
-            </button>
+            </button> : 
+            <button className="flex items-center gap-4 px-2 pl-5 py-1.5 text-[15px] font-[450] rounded-full font-para bg-brandGreen text-brandLight">
+              Dashboard
+              <img className="w-10 rounded-full object-cover h-10" src="https://www.newlista.com/assets/RevImage1-CFSbwp3_.jpg" alt="" />
+            </button>}
+
           </div>
 
           {/* Mobile Menu Button */}
