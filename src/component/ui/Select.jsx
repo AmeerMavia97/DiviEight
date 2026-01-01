@@ -10,6 +10,7 @@ const Select = ({
   errors,
   placeholder = "Select an option",
   disabled = false,
+  accent
 }) => {
   const errorMessage = errors?.[name]?.message;
 
@@ -25,7 +26,7 @@ const Select = ({
         {...register(name, validation)}
         disabled={disabled}
         
-        className={` h-12 px-3 mt-1.5 font-para text-[14.5px] w-full border-[1px] rounded-[6px] text-brandDark bg-[#fafcfcc5] outline-none transition appearance-none
+        className={` h-12 px-3 mt-1.5 font-para text-[14.5px] w-full border-[1px] rounded-[6px] text-brandDark ${accent && accent} bg-[#fafcfcc5] outline-none transition appearance-none
           ${
             errorMessage
               ? "border-red-500 focus:border-red-500"

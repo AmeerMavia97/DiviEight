@@ -13,6 +13,7 @@ import Listings from '@/screens/Listing/Listings'
 import ContactUs from '@/screens/ContactUs/ContactUs'
 import ListingDetails from '@/screens/ListingDetails/ListingDetails'
 import DashboardRouting from '@/screens/Dashboard'
+import ChangePassword from '@/screens/auth/ChangePassword/ChangePassword'
 
 const AppRouter = () => {
   return (
@@ -30,6 +31,8 @@ const AppRouter = () => {
         <Route path={"/forget-password"} element={<ForgetPassword />} />
         <Route path={"/set-new-password"} element={<SetNewPassword />} />
         <Route path={"/verify-otp"} element={<VerifyOtp />} />
+        <Route path="/change-password" element={<ChangePassword />} />
+
       </Routes>
     </BrowserRouter>
   )

@@ -10,7 +10,7 @@ const steps = [
 
 export default function Stepper({ currentStep, setStep }) {
   return (
-    <div className="flex items-center justify-between mb-8 pb-6 border-b-[1px] border-[#dedddd]">
+    <div className="flex items-center justify-between mb-6 pb-6 border-b-[1px] border-[#dedddd]">
       {steps.map((step, index) => {
         const isCompleted = index < currentStep;
         const isActive = index === currentStep;

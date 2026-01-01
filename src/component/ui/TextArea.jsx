@@ -7,6 +7,7 @@ export function Textarea({
   name,
   validation = {},
   errors = {},
+  accent,
   rows = 4,
 }) {
   return (
@@ -21,7 +22,7 @@ export function Textarea({
         rows={rows}
         placeholder={placeholder}
         {...register(name, validation)}
-        className={`mt-1.5 px-3 py-2 font-para text-[14.5px] w-full border-[1px] rounded-[6px] text-brandDark bg-[#fafcfcc5] placeholder:text-brandGrey2 font-[500] resize-none ${
+        className={`mt-1.5 px-3 py-2 font-para ${accent && accent} text-[14.5px] w-full border-[1px] rounded-[6px] text-brandDark bg-[#fafcfcc5] placeholder:text-brandGrey2 font-[500] resize-none ${
           errors[name] ? "border-red-500" : "border-[#dadadacc]"
         }`}
       />

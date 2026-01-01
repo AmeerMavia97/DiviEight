@@ -9,6 +9,7 @@ export function Input({
   name,
   validation = {},
   errors = {},
+  accent,
   isPassword = false,
 }) {
   const [show, setShow] = useState(false);
@@ -27,7 +28,7 @@ export function Input({
           type={inputType}
           placeholder={placeholder}
           {...register(name, validation)}
-          className={`h-12 px-3 pr-10 mt-1.5 font-para text-[14.5px] w-full border-[1px] rounded-[6px] text-brandDark bg-[#fafcfcc5] placeholder:text-brandGrey2 font-[500] ${
+          className={`h-12 px-3 pr-10 mt-1.5 font-para text-[14.5px] w-full border-[1px] rounded-[6px] text-brandDark ${accent && accent} bg-[#fafcfcc5] placeholder:text-brandGrey2 font-[500] ${
             errors[name] ? "border-red-500" : "border-[#dadadacc]"
           }`}
         />

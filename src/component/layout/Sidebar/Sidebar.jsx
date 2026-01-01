@@ -15,12 +15,12 @@ const Sidebar = () => {
 
 
     return (
-        <div className="w-64 h-screen bg-[#0f1518] px-4 py-5 flex flex-col justify-between ">
+        <div className="w-64 h-screen bg-[#0f1518] px-4 py-5 flex flex-col justify-between fixed">
 
 
-            <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-8">
                 {/* Logo */}
-                <div className="flex justify-center">
+                <div className="flex justify-center mt-4">
                     <img src={Logo} alt="Logo" className="w-[70%]" />
                 </div>
                 {/* Main Menu */}
@@ -30,7 +30,7 @@ const Sidebar = () => {
                             <NavLink
                                 key={item.name}
                                 to={item.href}
-                                end={item.href === "/dashboard"} 
+                                end={item.href === "/dashboard"}
                                 className={({ isActive }) =>
                                     `flex items-center gap-3 text-[16.8px] font-head tracking-[-0.4px]
          py-2 px-3 rounded cursor-pointer transition-colors
